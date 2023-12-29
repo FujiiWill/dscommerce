@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Set;
 
 @Entity
-@Table(name = "tb-order")
+@Table(name = "tb_order")
 public class Order {
 
     @Id
