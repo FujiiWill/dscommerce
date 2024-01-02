@@ -10,9 +10,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
-import java.util.List;
-
-import static org.springframework.web.servlet.function.RequestPredicates.path;
 
 @RestController
 @RequestMapping(value = "/products")
@@ -48,7 +45,7 @@ public class ProductController {
     }
 
     @DeleteMapping(value = "/{id}")
-    public ResponseEntity <Void> update(@PathVariable Long id) {
+    public ResponseEntity <Void> delete(@PathVariable Long id) {
         service.delete(id);
         return ResponseEntity.noContent().build();
     }
