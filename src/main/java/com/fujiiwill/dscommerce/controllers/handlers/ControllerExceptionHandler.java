@@ -4,7 +4,7 @@ import com.fujiiwill.dscommerce.dto.CustomError;
 import com.fujiiwill.dscommerce.dto.ValidationError;
 import com.fujiiwill.dscommerce.services.exceptions.DatabaseException;
 import com.fujiiwill.dscommerce.services.exceptions.ResourseNotFoundException;
-import jakarta.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;

@@ -1,6 +1,6 @@
 package com.fujiiwill.dscommerce.entities;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 
 
 import java.util.HashSet;

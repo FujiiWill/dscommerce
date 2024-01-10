@@ -5,7 +5,7 @@ import com.fujiiwill.dscommerce.entities.Product;
 import com.fujiiwill.dscommerce.repositories.ProductRepository;
 import com.fujiiwill.dscommerce.services.exceptions.DatabaseException;
 import com.fujiiwill.dscommerce.services.exceptions.ResourseNotFoundException;
-import jakarta.persistence.EntityNotFoundException;
+import javax.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.data.domain.Page;
@@ -28,8 +28,8 @@ public class ProductService {
     }
 
     @Transactional(readOnly = true)
-    public Page<ProductDTO> findAll(Pageable pageable){
-        Page<Product> result = repository.findAll(pageable);
+    public Page<ProductDTO> findAll(String name, Pageable pageable){
+        Page<Product> result = repository.searchByName(name, pageable);
         return result.map(x -> new ProductDTO(x));
     }
 

@@ -1,7 +1,7 @@
 package com.fujiiwill.dscommerce.dto;
 
 import com.fujiiwill.dscommerce.entities.Product;
-import jakarta.validation.constraints.*;
+import javax.validation.constraints.*;
 
 public class ProductDTO {
 
