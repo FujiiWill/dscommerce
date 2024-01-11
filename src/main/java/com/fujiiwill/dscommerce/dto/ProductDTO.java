@@ -1,7 +1,10 @@
 package com.fujiiwill.dscommerce.dto;
 
+import com.fujiiwill.dscommerce.entities.Category;
 import com.fujiiwill.dscommerce.entities.Product;
 import javax.validation.constraints.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ProductDTO {
 
@@ -15,6 +18,9 @@ public class ProductDTO {
     @Positive(message = "O preço precisa ser positivo")
     private Double price;
     private String imgUrl;
+
+    @NotEmpty(message = "Deve ter pelo menos uma categoria")
+    private List<CategoryDTO> categories = new ArrayList<>();
 
     public ProductDTO(Long id, String name, String description, Double price, String imgUrl) {
         this.id = id;
@@ -30,6 +36,9 @@ public class ProductDTO {
         description = entity.getDescription();
         price = entity.getPrice();
         imgUrl = entity.getImgUrl();
+        for(Category cat: entity.getCategories()){
+            categories.add(new CategoryDTO(cat));
+        }
     }
 
     public Long getId() {
@@ -50,5 +59,9 @@ public class ProductDTO {
 
     public String getImgUrl() {
         return imgUrl;
+    }
+
+    public List<CategoryDTO> getCategories() {
+        return categories;
     }
 }

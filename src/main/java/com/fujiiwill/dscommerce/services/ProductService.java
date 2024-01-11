@@ -1,7 +1,9 @@
 package com.fujiiwill.dscommerce.services;
 
+import com.fujiiwill.dscommerce.dto.CategoryDTO;
 import com.fujiiwill.dscommerce.dto.ProductDTO;
 import com.fujiiwill.dscommerce.dto.ProductMinDTO;
+import com.fujiiwill.dscommerce.entities.Category;
 import com.fujiiwill.dscommerce.entities.Product;
 import com.fujiiwill.dscommerce.repositories.ProductRepository;
 import com.fujiiwill.dscommerce.services.exceptions.DatabaseException;
@@ -72,5 +74,12 @@ public class ProductService {
         entity.setDescription(dto.getDescription());
         entity.setPrice(dto.getPrice());
         entity.setImgUrl(dto.getImgUrl());
+
+        entity.getCategories().clear();;
+        for(CategoryDTO catDto : dto.getCategories()){
+            Category cat = new Category();
+            cat.setId(catDto.getId());
+            entity.getCategories().add(cat);
+        }
     }
 }
