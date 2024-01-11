@@ -1,6 +1,7 @@
 package com.fujiiwill.dscommerce.services;
 
 import com.fujiiwill.dscommerce.dto.ProductDTO;
+import com.fujiiwill.dscommerce.dto.ProductMinDTO;
 import com.fujiiwill.dscommerce.entities.Product;
 import com.fujiiwill.dscommerce.repositories.ProductRepository;
 import com.fujiiwill.dscommerce.services.exceptions.DatabaseException;
@@ -28,9 +29,9 @@ public class ProductService {
     }
 
     @Transactional(readOnly = true)
-    public Page<ProductDTO> findAll(String name, Pageable pageable){
+    public Page<ProductMinDTO> findAll(String name, Pageable pageable){
         Page<Product> result = repository.searchByName(name, pageable);
-        return result.map(x -> new ProductDTO(x));
+        return result.map(x -> new ProductMinDTO(x));
     }
 
     @Transactional
